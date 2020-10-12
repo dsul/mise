@@ -1,7 +1,7 @@
 class Mise {
   constructor(executor) {
     if (!(executor instanceof Function)) {
-      throw new Error('Executor must be a function.')
+      throw new TypeError('The constructor argument must be a function.')
     }
   }
 }
