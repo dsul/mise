@@ -1,7 +1,7 @@
 {
   "name": "mise",
   "version": "1.0.0",
-  "description": "A basic Promise/A+ implementation for learning purposes only",
+  "description": "A basic Promise implementation for learning purposes only",
   "main": "mise.js",
   "dependencies": {},
   "devDependencies": {
