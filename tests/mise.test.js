@@ -12,3 +12,18 @@ test('the constructor argument must be a function', () => {
   })
 })
 
+describe('.resolve', () => {
+  it('returns an instance of Mise', () => {
+    const mise = Mise.resolve('')
+    expect(mise).toBeInstanceOf(Mise)
+  }),
+
+  describe('value is not a promise or thenable', () => {
+    it('returns the resolved value', () => {
+      const resolvedValue = 5
+      const mise = Mise.resolve(resolvedValue)
+      mise.then(value => expect(value).toEqual(resolvedValue))
+    })
+  })
+})
+

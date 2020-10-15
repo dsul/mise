@@ -11,6 +11,10 @@ class Mise {
   then(onFulfilled, onRejected) {
     stateMachine.dispatch('then', onFulfilled, onRejected)
   }
+
+  static resolve(value) {
+    return new Mise(resolve => resolve(value))
+  }
 }
 
 const stateMachine = {
