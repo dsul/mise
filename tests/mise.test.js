@@ -33,5 +33,21 @@ describe('#then', () => {
     const mise2 = mise1.then((val) => val)
     expect(mise2).toBeInstanceOf(Mise)
   })
+
+  it('has the resolved value available on the first then', () => {
+    const resolvedValue = 5
+    const mise1 = Mise.resolve(resolvedValue)
+    mise1
+      .then(val => expect(val).toEqual(resolvedValue))
+  })
+
+  it('has the returned value available on chained thens', () => {
+    const resolvedValue = 5
+    const mise1 = Mise.resolve(resolvedValue)
+    mise1
+      .then(val => val + 5)
+      .then(val => expect(val).toEqual(resolvedValue + 5))
+      .then(val => expect(val).toEqual(undefined))
+  })
 })
 
