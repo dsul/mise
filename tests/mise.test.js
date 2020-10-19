@@ -27,3 +27,11 @@ describe('.resolve', () => {
   })
 })
 
+describe('#then', () => {
+  it('returns an instance of mise', () => {
+    const mise1 = Mise.resolve(4)
+    const mise2 = mise1.then((val) => val)
+    expect(mise2).toBeInstanceOf(Mise)
+  })
+})
+
