@@ -2,7 +2,8 @@ class StateMachine {
   constructor() {
     return {
       state: 'pending',
-      currentValue: undefined,
+      currentValue: null,
+      thenValue: null,
       dispatch(actionName, ...args) {
         const action = this.transitions[this.state][actionName]
         action.apply(this, args)
