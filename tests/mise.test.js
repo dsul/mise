@@ -56,5 +56,14 @@ describe('#then', () => {
     mise1.then(val => val + 5)
     mise1.then(val => expect(val).toEqual(resolvedValue)) 
   })
+
+  describe('onFulfilled handler function returns a fulfilled mise', () => {
+    it('returns a mise that gets fulfilled with the handler\'s mise value as its value', () => {
+      const resolvedValue = 5
+      const fulfilledMise = Mise.resolve(resolvedValue) 
+      const mise = Mise.resolve(1).then(() => fulfilledMise)
+      mise.then(val => expect(val).toEqual(resolvedValue))
+    })
+  })
 })
 
