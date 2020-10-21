@@ -49,5 +49,12 @@ describe('#then', () => {
       .then(val => expect(val).toEqual(resolvedValue + 5))
       .then(val => expect(val).toEqual(undefined))
   })
+
+  it('does not modify the original Mise\'s resolved value when chaining', () => {
+    const resolvedValue = 5
+    const mise1 = Mise.resolve(resolvedValue)
+    mise1.then(val => val + 5)
+    mise1.then(val => expect(val).toEqual(resolvedValue)) 
+  })
 })
 

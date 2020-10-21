@@ -13,7 +13,7 @@ class Mise {
 
   then(onFulfilled, onRejected) {
     this.stateMachine.dispatch('then', onFulfilled, onRejected)
-    return new Mise((resolve) => resolve(this.stateMachine.currentValue))
+    return new Mise((resolve) => resolve(this.stateMachine.thenValue))
   }
 
   static resolve(value) {

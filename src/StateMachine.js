@@ -20,7 +20,7 @@ class StateMachine {
         },
         'fulfilled': {
           then: function (onFulfilled, _) {
-            this.currentValue = onFulfilled(this.currentValue)
+            this.thenValue = onFulfilled(this.currentValue)
           }
         },
         'rejected': {
