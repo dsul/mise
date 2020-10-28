@@ -57,6 +57,15 @@ describe('#then', () => {
     mise1.then(val => expect(val).toEqual(resolvedValue)) 
   })
 
+  it('will wait for the async operation to finish', () => {
+    const resolvedValue = 9
+    const asyncMise = new Mise((resolve, _) => {
+      setTimeout(() => resolve(resolvedValue), 0)
+    })
+    expect(() => asyncMise.then(() => {})).not.toThrow()
+    asyncMise.then(val => expect(val).toEqual(resolvedValue))
+  })
+
   describe('onFulfilled handler function returns a fulfilled mise', () => {
     it('returns a mise that gets fulfilled with the handler\'s mise value as its value', () => {
       const resolvedValue = 5
